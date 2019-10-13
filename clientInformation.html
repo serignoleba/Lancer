@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Client Information</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+      
+    </head>
+    
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body{
+        font-family: Ubuntu;
+    }
+    .container {
+        width: 96%;
+        margin: 0 auto;
+    }
+
+    .error{
+        color: red;
+    }
+
+    .header-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        height: 8vh;
+    }
+    .header-container h4 {
+        flex: 2;
+        text-align: center;
+        padding-top: 2.4vh;
+        border-bottom: 1px solid #C4C4C4;
+    }
+    .back-close {
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+    .back-close button {
+        color: #C4C4C4;
+        border: none;
+    }
+    .header-container img {
+        border: 0;
+    }
+    .header-container button:hover {
+        transition: border 1s;
+        border: none;
+    }
+    #next, #bottom-next {
+        width: 12em;
+        background-color: #C4C4C4;
+        font-size: 14px;
+        color: #fff;
+    }
+    #next {
+        border: none;
+    }
+    .form {
+        position: relative;
+        top: 6vh;
+        width: 90%;
+        margin: 0 auto;
+        left: 1.2em;
+    }
+    h1, h3, h4 {
+        font-family: "Ubuntu";
+        padding-bottom: 0.3em;
+    }
+    h3, h4 {
+        text-align: center;
+    }
+    h1 {
+        position: relative;
+    }
+    form {
+        border: 1px solid #C4C4C4;
+        width: 90%;
+        padding: 1em;
+        padding-bottom: 8em;
+    }
+    #bottom-next {
+        position: relative;
+        top: 4em;
+        height: 8vh;
+        border: none;
+        width: 70%;
+        margin-bottom: 2em;
+    }
+    #bottom-next:hover {
+        font-weight: bolder;
+        transition: font-weight 1s, background-color 1s;
+    }
+    footer {
+        width: 30%;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        padding-bottom: 2em;
+        margin-left: calc(50%);
+        transform: translateX(-50%);
+    }
+    label, input, select {
+        display: block;
+        width: 70%;
+        margin: 0 auto 0.2em auto;
+    }
+    label{
+        font-size: 16px;
+        color: #262626;
+    }
+    input {
+        padding: 0.2em;
+        margin-bottom: 0.5em;
+    }
+    input{
+        border: 1px solid #919191;
+        border-right: none;
+        
+    }
+    #contactName {
+        border: 1px solid #919191;
+        width: 273px;
+    }
+    input::placeholder{
+        color: #B1B1B1;
+    }
+    select{
+        padding: 0.2em;
+        margin-bottom: 0.5em;
+        background-color: #ffffff;
+    }
+    #close{
+        background-color: #ffffff;
+        border:1px solid #C4C4C4 ;
+        border-top: none;
+        font-size: 30px;
+        width: 2em;
+    }
+    #back{
+        background-color: #ffffff;
+        border:1px solid #C4C4C4 ;
+        border-left: none;
+        border-top: none;
+        font-size: 30px;
+        width: 2em;
+    }
+    #back i {
+        margin-right: -10px;
+    }
+    #addcontact {
+        width: 40%;
+        background-color: #fff;
+        border: 0;
+        font-weight: bolder;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: calc(25%);
+    }
+    #add-another i {
+        vertical-align: middle;
+        font-size: 18px;
+        color: inherit;
+    }
+    h3:last-of-type {
+        padding-top: 2em;
+    }
+    .input-required {
+        border: 1px solid #919191;
+        border-left: none;
+        padding-top: 14px;
+        padding-bottom: 4px;
+        padding-right: 3px;
+        color: #0ABAB5;
+        font-size: 10px;
+    }
+    .input-required2 {
+        border: 1px solid #919191;
+        border-left: none;
+        padding-top: 14px;
+        padding-bottom: 3px;
+        padding-right: 3px;
+        color: #0ABAB5;
+        font-size: 10px;
+    }
+    .is-invalid {
+        border-color: red;
+    }
+    .invalid-feedback {
+        display: none;
+        width: 100%;
+        margin-top: 0.25rem;
+        font-size: 80%;
+        color: #dc3545;
+    }
+    @media screen and (min-width: 700px) {
+
+        input, select {
+            display: inline-block;
+            width: 40%;
+            padding: 0.5em;
+        }
+        label {
+            margin-left: 0.2em;
+        }
+        #addcontact {
+
+            margin-left: 0;
+            text-align: left;
+        }
+        footer {
+
+            margin-left: calc(50% + 4rem);
+            transform: translateX(-50%);
+        }
+    }
+    @media screen and (min-width: 900px) {
+        body {
+            max-width: 1020px;
+            margin: 0 auto;
+        }
+        label {
+            display: inline-block;
+            margin-right: 10px;
+            width: 20%;
+        }
+
+        form h3, form h4 {
+            text-align: left;
+            margin-bottom: 1em;
+        }
+        input, select {
+            margin-left: 1.5em;
+            width: 30%;
+        }
+    }
+</style>
+<body>
+    <nav>
+        <div class="header-container">
+            <div class="back-close">
+                <button id="close"><i class="material-icons">clear</i></button>
+                <button id="back"><i class="material-icons">arrow_back_ios</i></button>
+            </div>
+
+            <h4>Client</h4>
+            <button id="next">NEXT</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="form">
+            <h1>Client Information</h1>
+            <form autocomplete="on" action="" method="post" onsubmit="return checkForm()">
+            <div>
+            <h3>Business Information</h3>
+                <label for="companyName">Company name</label>
+                <input type="text" class="company-input" id="companyName" placeholder="e.g. Sunshine Studio"><sub class="input-required">Required</sub>
+                <div class="invalid-feedback">
+                    Enter a company name with at least 2 letters
+                </div>
+                <br><br>
+                <div id="add-another">
+                    <h5>Add Address <i class="material-icons">add</i></h5>
+                </div>
+            </div>
+            <div>
+                <h3>Contact Information</h3>
+                <label for="contactName">Contact name</label>
+                <input type="text" id="contactName" name="contactname" placeholder="e.g. Ben Davies">
+                <div class="invalid-feedback">
+                    Enter a name with at least 5 letters
+                </div>
+                <br>
+                <label for="contactEmail">Contact email</label>
+                <input type="text" id="contactEmail" name="contactemail" placeholder="e.g. email@domain.com" class="input" required/><sub class="input-required2">Required</sub>
+                <div class="invalid-feedback">
+                    Enter a valid email
+                </div>
+                <br>
+                <br>
+                <div id="add-another">
+                    <h5>Add other contacts <i class="material-icons">add</i></h5>
+                </div>
+            </div>
+
+
+            </form>
+
+        </div>
+    </div>
+
+    <footer> 
+        <button id="bottom-next" type="submit">NEXT</button>
+    </footer>
+</body>
+    
+<script>
+    document
+        .getElementById("companyName")
+        .addEventListener("blur", validateName);
+    document
+        .getElementById("contactName")
+        .addEventListener("blur", validateContactName);
+    document
+        .getElementById("contactEmail")
+        .addEventListener("blur", validateEmail);
+
+    function validateName() {
+        const companyName = document.getElementById("companyName");
+        const re = /^[a-zA-Z]{2,}$/;
+
+        if (!re.test(companyName.value)) {
+            companyName.classList.add("is-invalid");
+            document.querySelector(".invalid-feedback").style.display =
+                "block";
+        } else {
+            companyName.classList.remove("is-invalid");
+            document.querySelector(".invalid-feedback").style.display =
+                "none";
+        }
+    }
+    function validateContactName() {
+        const contactName = document.getElementById("contactName");
+        const re = /^[a-zA-Z]{5,}$/;
+
+        if (!re.test(contactName.value)) {
+            contactName.classList.add("is-invalid");
+            document.querySelector(
+                ".name .invalid-feedback"
+            ).style.display = "block";
+        } else {
+            contactName.classList.remove("is-invalid");
+            document.querySelector(
+                ".name .invalid-feedback"
+            ).style.display = "none";
+        }
+    }
+    function validateEmail() {
+        const contactEmail = document.getElementById("contactEmail");
+        const re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+
+        if (!re.test(contactEmail.value)) {
+            contactEmail.classList.add("is-invalid");
+            document.querySelector(
+                ".email .invalid-feedback"
+            ).style.display = "block";
+        } else {
+            contactEmail.classList.remove("is-invalid");
+            document.querySelector(
+                ".email .invalid-feedback"
+            ).style.display = "none";
+        }
+    }
+</script>
+</html>
